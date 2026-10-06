@@ -10,5 +10,9 @@ while True:
     if not question:
         continue
 
-    chunks = search(question, n_results=4)
+    chunks = search(question, n_results=6)
     print("\nAnswer:", answer(question, chunks))
+
+    print("\nSources:")
+    for c in chunks:
+        print(f"  - {c['source']} (chunk {c['chunk']})")

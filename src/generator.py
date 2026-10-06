@@ -6,9 +6,10 @@ client = genai.Client()  # reads GEMINI_API_KEY from .env
 
 
 def answer(question, chunks):
-    context = "\n\n---\n\n".join(chunks)
-    prompt = f"""Answer the question using only the context below.
-If the answer is not in the context, say you don't know.
+    context = "\n\n---\n\n".join(c["text"] for c in chunks)
+    prompt = f"""You are a helpful assistant. Answer the question using the context below.
+Explain clearly in your own words. If the context only partly answers it, share what it does say.
+If the context has nothing relevant, say you don't know.
 
 Context:
 {context}

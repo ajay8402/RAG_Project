@@ -1,3 +1,4 @@
+from src.cleaner import clean_text
 from pathlib import Path
 from pypdf import PdfReader
 
@@ -13,5 +14,5 @@ def load_documents(folder="data"):
             text = "\n".join(page.extract_text() or "" for page in reader.pages)
         else:
             continue
-        docs.append({"source": path.name, "text": text})
+        docs.append({"source": path.name, "text": clean_text(text)})
     return docs
