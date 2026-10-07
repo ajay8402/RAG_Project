@@ -1,0 +1,16 @@
+PASS | retrieval=yes | top distance=0.309 | What is stochastic gradient descent?
+PASS | retrieval=yes | top distance=0.136 | What is the difference between supervised and unsupervised learning?
+PASS | retrieval=yes | top distance=0.453 | What is overfitting?
+PASS | retrieval=yes | top distance=0.466 | What is underfitting?
+PASS | retrieval=yes | top distance=0.384 | What is regularization?
+PASS | retrieval=yes | top distance=0.352 | What is a validation set used for?
+PASS | retrieval=yes | top distance=0.598 | What does Occam's razor say?
+PASS | retrieval=yes | top distance=0.371 | What is linear regression?
+PASS | refused=yes | top distance=None | Who won the 2018 World Cup?
+PASS | refused=yes | top distance=None | What is the best pizza topping?
+PASS | refused=yes | top distance=None | How do I bake sourdough bread?
+PASS | refused=yes | top distance=None | What is the capital of Australia?
+
+Retrieval hit rate : 8/8
+Answer accuracy    : 8/8
+Correct refusals   : 4/4
