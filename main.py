@@ -11,8 +11,12 @@ while True:
         continue
 
     chunks = search(question, n_results=6)
+    if not chunks:
+        print("\nAnswer: I couldn't find anything relevant in your documents.")
+        continue
+
     print("\nAnswer:", answer(question, chunks))
 
     print("\nSources:")
     for c in chunks:
-        print(f"  - {c['source']} (chunk {c['chunk']})")
+        print(f"  - {c['source']} (chunk {c['chunk']}, distance {c['distance']})")

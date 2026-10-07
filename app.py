@@ -32,7 +32,7 @@ if "messages" not in st.session_state:
 def show_sources(sources):
     with st.expander("Sources"):
         for c in sources:
-            st.markdown(f"**{c['source']}** (chunk {c['chunk']})")
+            st.markdown(f"**{c['source']}** (chunk {c['chunk']}, distance {c['distance']})")
             st.caption(c["text"][:300] + "...")
 
 
@@ -51,9 +51,13 @@ if question := st.chat_input("Ask a question about your documents"):
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             chunks = search(question, n_results=6)
-            reply = answer(question, chunks)
+            if chunks:
+                reply = answer(question, chunks)
+            else:
+                reply = "I couldn't find anything relevant in your documents."
         st.markdown(reply)
-        show_sources(chunks)
+        if chunks:
+            show_sources(chunks)
 
     st.session_state.messages.append(
         {"role": "assistant", "content": reply, "sources": chunks}

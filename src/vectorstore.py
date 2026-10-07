@@ -1,15 +1,28 @@
 import chromadb
 from sentence_transformers import SentenceTransformer
 
+MAX_DISTANCE = 1.0  # we'll tune this in step 3
+
 model = SentenceTransformer("all-MiniLM-L6-v2")
 client = chromadb.PersistentClient(path="chroma_db")
-collection = client.get_or_create_collection("docs")
+
+
+def _get_collection():
+    return client.get_or_create_collection(
+        "docs", metadata={"hnsw:space": "cosine"}
+    )
+
+
+collection = _get_collection()
 
 
 def reset():
     global collection
-    client.delete_collection("docs")
-    collection = client.get_or_create_collection("docs")
+    try:
+        client.delete_collection("docs")
+    except Exception:
+        pass
+    collection = _get_collection()
 
 
 def add_chunks(source, chunks):
@@ -24,13 +37,25 @@ def add_chunks(source, chunks):
     )
 
 
-def search(query, n_results=6):
+def search(query, n_results=6, max_distance=None):
+    if max_distance is None:
+        max_distance = MAX_DISTANCE
     query_embedding = model.encode([query]).tolist()
     results = collection.query(
         query_embeddings=query_embedding,
         n_results=n_results,
     )
-    return [
-        {"text": doc, "source": meta["source"], "chunk": meta["chunk"]}
-        for doc, meta in zip(results["documents"][0], results["metadatas"][0])
+    found = [
+        {
+            "text": doc,
+            "source": meta["source"],
+            "chunk": meta["chunk"],
+            "distance": round(dist, 3),
+        }
+        for doc, meta, dist in zip(
+            results["documents"][0],
+            results["metadatas"][0],
+            results["distances"][0],
+        )
     ]
+    return [c for c in found if c["distance"] <= max_distance]
