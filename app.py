@@ -5,7 +5,7 @@ import streamlit as st
 from src.loader import load_documents
 from src.chunker import chunk_text
 from src.vectorstore import add_chunks, search
-from src.generator import answer
+from src.generator import answer, rewrite_question
 
 st.set_page_config(page_title="RAG Chat", page_icon="📄")
 st.title("📄 Chat with your documents")
@@ -23,7 +23,9 @@ with st.sidebar:
                     chunks = chunk_text(doc["text"])
                     add_chunks(doc["source"], chunks)
                     st.success(f"Added {len(chunks)} chunks from {uploaded.name}")
-
+    if st.button("Clear chat"):
+        st.session_state.messages = []
+        st.rerun()
 # ---------- Chat history ----------
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -43,16 +45,20 @@ for msg in st.session_state.messages:
             show_sources(msg["sources"])
 
 # ---------- New question ----------
+# ---------- New question ----------
 if question := st.chat_input("Ask a question about your documents"):
+    history = st.session_state.messages[-6:]  # last 3 exchanges, taken before adding this question
+
     st.session_state.messages.append({"role": "user", "content": question})
     with st.chat_message("user"):
         st.markdown(question)
 
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            chunks = search(question, n_results=6)
+            search_query = rewrite_question(question, history)
+            chunks = search(search_query, n_results=6)
             if chunks:
-                reply = answer(question, chunks)
+                reply = answer(question, chunks, history)
             else:
                 reply = "I couldn't find anything relevant in your documents."
         st.markdown(reply)
@@ -62,3 +68,4 @@ if question := st.chat_input("Ask a question about your documents"):
     st.session_state.messages.append(
         {"role": "assistant", "content": reply, "sources": chunks}
     )
+

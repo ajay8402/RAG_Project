@@ -1,7 +1,7 @@
 import chromadb
 from sentence_transformers import SentenceTransformer
 
-MAX_DISTANCE = 1.0  # we'll tune this in step 3
+MAX_DISTANCE = 0.65  # use a number that fits your results
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 client = chromadb.PersistentClient(path="chroma_db")
