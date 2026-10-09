@@ -18,6 +18,21 @@ TESTS = [
     {"q": "What is the best pizza topping?", "keywords": [], "answerable": False},
     {"q": "How do I bake sourdough bread?", "keywords": [], "answerable": False},
     {"q": "What is the capital of Australia?", "keywords": [], "answerable": False},
+        # Paraphrased, answerable
+    {"q": "How does a model end up memorizing training data instead of generalizing?", "keywords": ["overfit", "memoriz"], "answerable": True},
+    {"q": "Why do we split off a separate part of the data when picking settings like regularization strength?", "keywords": ["validation", "hyperparameter"], "answerable": True},
+    {"q": "What is the idea that no learning algorithm is best for every problem?", "keywords": ["free lunch"], "answerable": True},
+    {"q": "How does a penalty on large weights help a model?", "keywords": ["weight decay", "regulariz"], "answerable": True},
+    {"q": "What problem arises when the number of input dimensions grows very large?", "keywords": ["dimensionality"], "answerable": True},
+    {"q": "How does PCA reduce the size of data?", "keywords": ["principal component", "variance"], "answerable": True},
+    {"q": "What is k-fold cross-validation?", "keywords": ["fold", "cross-validation"], "answerable": True},
+    {"q": "What does maximum likelihood estimation do?", "keywords": ["likelihood"], "answerable": True},
+
+    # Near the topic but NOT in the PDF (should refuse)
+    {"q": "How does the transformer attention mechanism work?", "keywords": [], "answerable": False},
+    {"q": "How do convolutional neural networks detect edges in images?", "keywords": [], "answerable": False},
+    {"q": "What is dropout and how does it prevent overfitting?", "keywords": [], "answerable": False},
+    {"q": "How does early stopping work?", "keywords": [], "answerable": False},
 ]
 
 REFUSAL_PHRASES = [

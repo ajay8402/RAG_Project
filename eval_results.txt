@@ -10,7 +10,19 @@ PASS | refused=yes | top distance=None | Who won the 2018 World Cup?
 PASS | refused=yes | top distance=None | What is the best pizza topping?
 PASS | refused=yes | top distance=None | How do I bake sourdough bread?
 PASS | refused=yes | top distance=None | What is the capital of Australia?
+PASS | retrieval=yes | top distance=0.513 | How does a model end up memorizing training data instead of generalizing?
+PASS | retrieval=yes | top distance=0.527 | Why do we split off a separate part of the data when picking settings like regularization strength?
+PASS | retrieval=yes | top distance=0.402 | What is the idea that no learning algorithm is best for every problem?
+PASS | retrieval=yes | top distance=0.547 | How does a penalty on large weights help a model?
+PASS | retrieval=yes | top distance=0.375 | What problem arises when the number of input dimensions grows very large?
+PASS | retrieval=yes | top distance=0.4 | How does PCA reduce the size of data?
+PASS | retrieval=yes | top distance=0.398 | What is k-fold cross-validation?
+PASS | retrieval=yes | top distance=0.364 | What does maximum likelihood estimation do?
+PASS | refused=yes | top distance=None | How does the transformer attention mechanism work?
+PASS | refused=yes | top distance=0.631 | How do convolutional neural networks detect edges in images?
+PASS | refused=yes | top distance=None | What is dropout and how does it prevent overfitting?
+PASS | refused=yes | top distance=None | How does early stopping work?
 
-Retrieval hit rate : 8/8
-Answer accuracy    : 8/8
-Correct refusals   : 4/4
+Retrieval hit rate : 16/16
+Answer accuracy    : 16/16
+Correct refusals   : 8/8
