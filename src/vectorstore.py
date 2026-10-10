@@ -1,7 +1,7 @@
 import chromadb
 from sentence_transformers import SentenceTransformer
 
-MAX_DISTANCE = 0.65  # use a number that fits your results
+MAX_DISTANCE = 0.9  # temporary, retuned on legal questions in Day 12
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 client = chromadb.PersistentClient(path="chroma_db")
@@ -25,10 +25,15 @@ def reset():
     collection = _get_collection()
 
 
-def add_chunks(source, chunks):
+def add_chunks(source, chunks, page=1, section="", chapter=""):
+    if not chunks:
+        return
     embeddings = model.encode(chunks).tolist()
-    ids = [f"{source}_{i}" for i in range(len(chunks))]
-    metadatas = [{"source": source, "chunk": i} for i in range(len(chunks))]
+    ids = [f"{source}_p{page}_s{section}_{i}" for i in range(len(chunks))]
+    metadatas = [
+        {"source": source, "page": page, "chunk": i, "section": section, "chapter": chapter}
+        for i in range(len(chunks))
+    ]
     collection.upsert(
         ids=ids,
         documents=chunks,
@@ -49,6 +54,9 @@ def search(query, n_results=6, max_distance=None):
         {
             "text": doc,
             "source": meta["source"],
+            "page": meta.get("page", 1),
+            "section": meta.get("section", ""),
+            "chapter": meta.get("chapter", ""),
             "chunk": meta["chunk"],
             "distance": round(dist, 3),
         }

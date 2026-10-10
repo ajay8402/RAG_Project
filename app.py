@@ -1,32 +1,22 @@
-from pathlib import Path
-
 import streamlit as st
 
-from src.loader import load_documents
-from src.chunker import chunk_text
-from src.vectorstore import add_chunks, search
+from src.vectorstore import search
 from src.generator import answer, rewrite_question
 
-st.set_page_config(page_title="RAG Chat", page_icon="📄")
-st.title("📄 Chat with your documents")
+st.set_page_config(page_title="Citizen Rights Assistant", page_icon="⚖️")
+st.title("⚖️ Citizen Rights Assistant")
+st.caption(
+    "Answers from Indian public legal documents, with page citations. "
+    "General information only, not legal advice."
+)
 
-# ---------- Sidebar: add a new document ----------
 with st.sidebar:
-    st.header("Add a document")
-    uploaded = st.file_uploader("PDF or TXT", type=["pdf", "txt"])
-    if uploaded and st.button("Add to knowledge base"):
-        Path("data").mkdir(exist_ok=True)
-        (Path("data") / uploaded.name).write_bytes(uploaded.getvalue())
-        with st.spinner("Reading and embedding..."):
-            for doc in load_documents():
-                if doc["source"] == uploaded.name:
-                    chunks = chunk_text(doc["text"])
-                    add_chunks(doc["source"], chunks)
-                    st.success(f"Added {len(chunks)} chunks from {uploaded.name}")
+    st.header("About")
+    st.write("Indexed: Consumer Protection Act, 2019 (source: India Code).")
     if st.button("Clear chat"):
         st.session_state.messages = []
         st.rerun()
-# ---------- Chat history ----------
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -34,7 +24,10 @@ if "messages" not in st.session_state:
 def show_sources(sources):
     with st.expander("Sources"):
         for c in sources:
-            st.markdown(f"**{c['source']}** (chunk {c['chunk']}, distance {c['distance']})")
+            st.markdown(
+                f"**{c['source']}**, PDF page {c.get('page', '?')} "
+                f"(distance {c['distance']})"
+            )
             st.caption(c["text"][:300] + "...")
 
 
@@ -44,23 +37,21 @@ for msg in st.session_state.messages:
         if msg.get("sources"):
             show_sources(msg["sources"])
 
-# ---------- New question ----------
-# ---------- New question ----------
-if question := st.chat_input("Ask a question about your documents"):
-    history = st.session_state.messages[-6:]  # last 3 exchanges, taken before adding this question
+if question := st.chat_input("Ask about your rights, e.g. how to file a consumer complaint"):
+    history = st.session_state.messages[-6:]
 
     st.session_state.messages.append({"role": "user", "content": question})
     with st.chat_message("user"):
         st.markdown(question)
 
     with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
+        with st.spinner("Searching the Act..."):
             search_query = rewrite_question(question, history)
             chunks = search(search_query, n_results=6)
             if chunks:
                 reply = answer(question, chunks, history)
             else:
-                reply = "I couldn't find anything relevant in your documents."
+                reply = "I couldn't find anything relevant in the indexed documents."
         st.markdown(reply)
         if chunks:
             show_sources(chunks)
@@ -68,4 +59,4 @@ if question := st.chat_input("Ask a question about your documents"):
     st.session_state.messages.append(
         {"role": "assistant", "content": reply, "sources": chunks}
     )
-
+    

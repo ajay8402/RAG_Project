@@ -1,18 +1,19 @@
-from src.cleaner import clean_text
 from pathlib import Path
 from pypdf import PdfReader
 
+from src.cleaner import clean_text
 
-def load_documents(folder="data"):
+
+def load_documents(folder="corpus"):
     docs = []
-    for path in Path(folder).rglob("*"):
+    for path in sorted(Path(folder).rglob("*")):
         suffix = path.suffix.lower()
-        if suffix == ".txt":
-            text = path.read_text(encoding="utf-8")
-        elif suffix == ".pdf":
+        if suffix == ".pdf":
             reader = PdfReader(path)
-            text = "\n".join(page.extract_text() or "" for page in reader.pages)
+            pages = [clean_text(p.extract_text() or "") for p in reader.pages]
+        elif suffix == ".txt":
+            pages = [clean_text(path.read_text(encoding="utf-8"))]
         else:
             continue
-        docs.append({"source": path.name, "text": clean_text(text)})
+        docs.append({"source": path.name, "pages": pages})
     return docs

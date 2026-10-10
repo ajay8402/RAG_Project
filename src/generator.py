@@ -34,12 +34,18 @@ Follow-up question: {question}"""
 
 
 def answer(question, chunks, history=None):
-    context = "\n\n---\n\n".join(c["text"] for c in chunks)
+    context = "\n\n---\n\n".join(
+        f"[{c['source']}, page {c['page']}]\n{c['text']}" for c in chunks
+    )
     convo = _format_history(history) if history else "(no earlier messages)"
 
-    prompt = f"""You are a helpful assistant. Answer the question using the context below.
-Explain clearly in your own words. If the context only partly answers it, share what it does say.
-If the context has nothing relevant, say you don't know.
+    prompt = f"""You are an assistant that explains Indian public legal documents in plain language.
+Use only the context below. Do not use your own general knowledge.
+If the context has nothing relevant, say you don't know and suggest checking the official source or a lawyer.
+If the context only partly answers the question, share what it does say.
+When you state a rule, cite its page like (page 12).
+Reply in the same language as the question.
+Describe what the document says. Do not give legal advice or predict the outcome of a case.
 Use the earlier conversation only to understand what the question refers to.
 If the question is vague and the earlier conversation does not explain what it refers to, ask the user to clarify instead of guessing.
 
