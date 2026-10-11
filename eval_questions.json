@@ -1,0 +1,817 @@
+{
+ "questions": [
+  {
+   "id": "q01",
+   "question": "What is the time limit for filing a consumer complaint?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "69"
+   ],
+   "keywords": [
+    "two years"
+   ]
+  },
+  {
+   "id": "q02",
+   "question": "My mobile phone was defective. Which commission do I approach if I paid less than one crore rupees?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "34"
+   ],
+   "keywords": [
+    "one crore"
+   ]
+  },
+  {
+   "id": "q03",
+   "question": "Which commission hears complaints where the amount paid is between one crore and ten crore rupees?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "47"
+   ],
+   "keywords": [
+    "ten crore"
+   ]
+  },
+  {
+   "id": "q04",
+   "question": "Where can I file a complaint if the value of goods or services exceeds ten crore rupees?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "58"
+   ],
+   "keywords": [
+    "ten crore"
+   ]
+  },
+  {
+   "id": "q05",
+   "question": "Who is allowed to file a complaint with the District Commission?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "35"
+   ],
+   "keywords": [
+    "recognised consumer association"
+   ]
+  },
+  {
+   "id": "q06",
+   "question": "Can I file a consumer complaint online?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "35"
+   ],
+   "keywords": [
+    "electronically"
+   ]
+  },
+  {
+   "id": "q07",
+   "question": "How long do I have to appeal against an order of the District Commission?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "41"
+   ],
+   "keywords": [
+    "forty-five days"
+   ]
+  },
+  {
+   "id": "q08",
+   "question": "Can I appeal to the Supreme Court against an order of the National Commission?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "67"
+   ],
+   "keywords": [
+    "Supreme Court"
+   ]
+  },
+  {
+   "id": "q09",
+   "question": "What can the District Commission order if my goods are found defective?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "39"
+   ],
+   "keywords": [
+    "replace the goods"
+   ]
+  },
+  {
+   "id": "q10",
+   "question": "How soon should the District Commission decide whether to admit my complaint?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "36"
+   ],
+   "keywords": [
+    "twenty-one days"
+   ]
+  },
+  {
+   "id": "q11",
+   "question": "What is the penalty for a misleading advertisement imposed by the Central Authority?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "21"
+   ],
+   "keywords": [
+    "ten lakh"
+   ]
+  },
+  {
+   "id": "q12",
+   "question": "What imprisonment can be given for a false or misleading advertisement?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "89"
+   ],
+   "keywords": [
+    "two years"
+   ]
+  },
+  {
+   "id": "q13",
+   "question": "What is the punishment for selling adulterated products?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "90"
+   ],
+   "keywords": [
+    "adulterant"
+   ]
+  },
+  {
+   "id": "q14",
+   "question": "What is the punishment for manufacturing or selling spurious goods?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "91"
+   ],
+   "keywords": [
+    "spurious"
+   ]
+  },
+  {
+   "id": "q15",
+   "question": "What happens if someone does not comply with a Consumer Commission order?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "72","71"
+   ],
+   "keywords": [
+    "one month"
+   ]
+  },
+  {
+   "id": "q16",
+   "question": "When is a product manufacturer liable in a product liability action?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "84"
+   ],
+   "keywords": [
+    "manufacturing defect"
+   ]
+  },
+  {
+   "id": "q17",
+   "question": "Under what conditions is a product seller liable for harm caused by a product?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "86"
+   ],
+   "keywords": [
+    "product seller"
+   ]
+  },
+  {
+   "id": "q18",
+   "question": "Does the Act cover buying goods for resale or commercial purposes?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "2"
+   ],
+   "keywords": [
+    "commercial purpose"
+   ]
+  },
+  {
+   "id": "q19",
+   "question": "Can a dispute be settled by mediation under the Consumer Protection Act?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "37",
+    "80",
+    "74"
+   ],
+   "keywords": [
+    "mediation"
+   ]
+  },
+  {
+   "id": "q20",
+   "question": "What can the Central Authority do about dangerous or unsafe goods?",
+   "lang": "en",
+   "answerable": true,
+   "source": "consumer_protection_act_2019.pdf",
+   "sections": [
+    "20","18"
+   ],
+   "keywords": [
+    "recall"
+   ]
+  },
+  {
+   "id": "q21",
+   "question": "Within how many days must a Public Information Officer reply to an RTI request?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "7"
+   ],
+   "keywords": [
+    "thirty days"
+   ]
+  },
+  {
+   "id": "q22",
+   "question": "How quickly must information be given if it concerns a person's life or liberty?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "7"
+   ],
+   "keywords": [
+    "forty-eight hours"
+   ]
+  },
+  {
+   "id": "q23",
+   "question": "How do I file an RTI request and in which languages?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "6"
+   ],
+   "keywords": [
+    "in writing"
+   ]
+  },
+  {
+   "id": "q24",
+   "question": "What can I do if I do not receive a reply to my RTI request?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "19"
+   ],
+   "keywords": [
+    "appeal"
+   ]
+  },
+  {
+   "id": "q25",
+   "question": "Within how many days can I file a second appeal to the Information Commission?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "19"
+   ],
+   "keywords": [
+    "ninety days"
+   ]
+  },
+  {
+   "id": "q26",
+   "question": "What penalty can the Information Commission impose on an officer who refuses information without reason?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "20"
+   ],
+   "keywords": [
+    "penalty"
+   ]
+  },
+  {
+   "id": "q27",
+   "question": "What kinds of information are exempt from disclosure under the RTI Act?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "8"
+   ],
+   "keywords": [
+    "exempt"
+   ]
+  },
+  {
+   "id": "q28",
+   "question": "Which organisations are not covered by the RTI Act?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "24"
+   ],
+   "keywords": [
+    "Second Schedule"
+   ]
+  },
+  {
+   "id": "q29",
+   "question": "Every public authority must appoint which officers to handle RTI requests?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "5"
+   ],
+   "keywords": [
+    "Public Information Officer"
+   ]
+  },
+  {
+   "id": "q30",
+   "question": "What information must public authorities publish on their own?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "4"
+   ],
+   "keywords": [
+    "publish"
+   ]
+  },
+  {
+   "id": "q31",
+   "question": "How is third party information handled in an RTI request?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "11"
+   ],
+   "keywords": [
+    "third party"
+   ]
+  },
+  {
+   "id": "q32",
+   "question": "Can a request be rejected because it infringes copyright?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "9"
+   ],
+   "keywords": [
+    "copyright"
+   ]
+  },
+  {
+   "id": "q33",
+   "question": "Can courts hear cases about RTI decisions?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "23"
+   ],
+   "keywords": [
+    "court"
+   ]
+  },
+  {
+   "id": "q34",
+   "question": "What is the meaning of 'information' under the RTI Act?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "2"
+   ],
+   "keywords": [
+    "information"
+   ]
+  },
+  {
+   "id": "q35",
+   "question": "Who appoints the Chief Information Commissioner?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "12"
+   ],
+   "keywords": [
+    "Chief Information Commissioner"
+   ]
+  },
+  {
+   "id": "q36",
+   "question": "What happens if the RTI Act conflicts with the Official Secrets Act?",
+   "lang": "en",
+   "answerable": true,
+   "source": "right_to_information_act_2005.pdf",
+   "sections": [
+    "22"
+   ],
+   "keywords": [
+    "Official Secrets Act"
+   ]
+  },
+  {
+   "id": "q37",
+   "question": "What is the penalty for not wearing a helmet?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "194D",
+    "129"
+   ],
+   "keywords": [
+    "headgear"
+   ]
+  },
+  {
+   "id": "q38",
+   "question": "Is wearing a helmet compulsory for a pillion rider on a motorcycle?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "129"
+   ],
+   "keywords": [
+    "motorcycle"
+   ]
+  },
+  {
+   "id": "q39",
+   "question": "What is the punishment for drunk driving?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "185"
+   ],
+   "keywords": [
+    "alcohol"
+   ]
+  },
+  {
+   "id": "q40",
+   "question": "What is the penalty for driving a vehicle without insurance?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "196"
+   ],
+   "keywords": [
+    "146"
+   ]
+  },
+  {
+   "id": "q41",
+   "question": "Is third-party insurance mandatory for a vehicle?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "146"
+   ],
+   "keywords": [
+    "insurance"
+   ]
+  },
+  {
+   "id": "q42",
+   "question": "Do I need a licence to drive a motor vehicle in a public place?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "3"
+   ],
+   "keywords": [
+    "driving licence"
+   ]
+  },
+  {
+   "id": "q43",
+   "question": "What is the minimum age for driving a motor vehicle?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "4"
+   ],
+   "keywords": [
+    "eighteen"
+   ]
+  },
+  {
+   "id": "q44",
+   "question": "What is the penalty for driving without a valid licence?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "181"
+   ],
+   "keywords": [
+    "section 3"
+   ]
+  },
+  {
+   "id": "q45",
+   "question": "What is the penalty for driving at excessive speed?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "183"
+   ],
+   "keywords": [
+    "speed"
+   ]
+  },
+  {
+   "id": "q46",
+   "question": "What is the penalty for dangerous driving?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "184"
+   ],
+   "keywords": [
+    "dangerous"
+   ]
+  },
+  {
+   "id": "q47",
+   "question": "What is the fine for not wearing a seat belt?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "194B"
+   ],
+   "keywords": [
+    "safety belt"
+   ]
+  },
+  {
+   "id": "q48",
+   "question": "What is the penalty for overloading a vehicle?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "194"
+   ],
+   "keywords": [
+    "permissible weight"
+   ]
+  },
+  {
+   "id": "q49",
+   "question": "What must a driver do after an accident that injures someone?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "134"
+   ],
+   "keywords": [
+    "accident"
+   ]
+  },
+  {
+   "id": "q50",
+   "question": "Does an aggregator like a cab-hailing app need a licence?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "93"
+   ],
+   "keywords": [
+    "aggregator"
+   ]
+  },
+  {
+   "id": "q51",
+   "question": "What is the rule for e-rickshaws under the Act?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "2A"
+   ],
+   "keywords": [
+    "e-rickshaw"
+   ]
+  },
+  {
+   "id": "q52",
+   "question": "What penalty applies if I do not let an ambulance or fire engine pass?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "194E"
+   ],
+   "keywords": [
+    "emergency"
+   ]
+  },
+  {
+   "id": "q53",
+   "question": "Where do I apply for compensation after a road accident?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "166"
+   ],
+   "keywords": [
+    "compensation"
+   ]
+  },
+  {
+   "id": "q54",
+   "question": "Is registration of a motor vehicle compulsory?",
+   "lang": "en",
+   "answerable": true,
+   "source": "motor_vehicles_act_1988.pdf",
+   "sections": [
+    "39"
+   ],
+   "keywords": [
+    "registration"
+   ]
+  },
+  {
+   "id": "u01",
+   "question": "Who won the 2018 World Cup?",
+   "lang": "en",
+   "answerable": false,
+   "source": null,
+   "sections": [],
+   "keywords": []
+  },
+  {
+   "id": "u02",
+   "question": "What is the best pizza topping?",
+   "lang": "en",
+   "answerable": false,
+   "source": null,
+   "sections": [],
+   "keywords": []
+  },
+  {
+   "id": "u03",
+   "question": "How do I bake sourdough bread?",
+   "lang": "en",
+   "answerable": false,
+   "source": null,
+   "sections": [],
+   "keywords": []
+  },
+  {
+   "id": "u04",
+   "question": "What is the capital of Australia?",
+   "lang": "en",
+   "answerable": false,
+   "source": null,
+   "sections": [],
+   "keywords": []
+  },
+  {
+   "id": "u05",
+   "question": "How do I file an income tax return?",
+   "lang": "en",
+   "answerable": false,
+   "source": null,
+   "sections": [],
+   "keywords": []
+  },
+  {
+   "id": "u06",
+   "question": "What is the punishment for cheque bounce?",
+   "lang": "en",
+   "answerable": false,
+   "source": null,
+   "sections": [],
+   "keywords": []
+  },
+  {
+   "id": "u07",
+   "question": "How do I apply for a passport?",
+   "lang": "en",
+   "answerable": false,
+   "source": null,
+   "sections": [],
+   "keywords": []
+  },
+  {
+   "id": "u08",
+   "question": "What are the rules for divorce by mutual consent?",
+   "lang": "en",
+   "answerable": false,
+   "source": null,
+   "sections": [],
+   "keywords": []
+  },
+  {
+   "id": "u09",
+   "question": "How do I file a First Information Report with the police?",
+   "lang": "en",
+   "answerable": false,
+   "source": null,
+   "sections": [],
+   "keywords": []
+  },
+  {
+   "id": "u10",
+   "question": "What rights does a tenant have against eviction?",
+   "lang": "en",
+   "answerable": false,
+   "source": null,
+   "sections": [],
+   "keywords": []
+  },
+  {
+   "id": "u11",
+   "question": "How do I register a private limited company?",
+   "lang": "en",
+   "answerable": false,
+   "source": null,
+   "sections": [],
+   "keywords": []
+  },
+  {
+   "id": "u12",
+   "question": "What is the minimum wage for a factory worker?",
+   "lang": "en",
+   "answerable": false,
+   "source": null,
+   "sections": [],
+   "keywords": []
+  }
+ ]
+}

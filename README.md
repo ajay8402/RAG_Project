@@ -64,3 +64,19 @@ RAG_Project/
 - Each question is answered independently (no chat memory)
 - Scanned PDFs without selectable text are not supported
 - Possible next steps: similarity cutoff, conversation memory, reranking, deployment
+
+## Evaluation
+
+`python eval_retrieval.py` runs 54 answerable and 12 unanswerable questions against
+the index. Each answerable question has a verified ground-truth section, so retrieval
+is scored by section (a hit means the correct section is among the retrieved chunks).
+
+| Setup | hit@1 | hit@3 | hit@6 | MRR |
+|---|---|---|---|---|
+| Baseline: Chroma + MiniLM, section chunks | 67% | 80% | 89% | 0.76 |
+
+By Act (hit@3): Consumer Protection 70%, RTI 81%, Motor Vehicles 89%.
+The top result came from the wrong Act for only 2% of questions.
+
+Ground truth for two questions was widened after reading the Act text
+(first run: hit@3 76%, hit@6 85%, MRR 0.73).

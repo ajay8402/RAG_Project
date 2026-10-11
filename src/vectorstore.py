@@ -1,7 +1,7 @@
 import chromadb
 from sentence_transformers import SentenceTransformer
 
-MAX_DISTANCE = 0.9  # temporary, retuned on legal questions in Day 12
+MAX_DISTANCE = 0.70  # temporary, retuned on legal questions in Day 12
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 client = chromadb.PersistentClient(path="chroma_db")
