@@ -1,7 +1,11 @@
 import re
 
-SECTION_RE = re.compile(r"^(\d{1,3})([A-Z]{0,2})\.\s+(?=[(\"“‘A-Z])")
+# A section starts with its number, optionally preceded by the side heading that some
+# scanned copies print on the same line (e.g. "Appeal 19. (1) Any person...").
+SECTION_RE = re.compile(r"^(?:(?P<lead>[A-Z][^\d]{0,60}?)\s)?(?P<num>\d{1,3})(?P<suf>[A-Z]{0,2})\.\s+(?=[(\"“‘A-Z])")
+LEAD_BAD_END_RE = re.compile(r"(?i)\b(section|sections|sub-section|clause|and|or|of|to|in|under)$")
 CHAPTER_RE = re.compile(r"^CHAPTER\s+([IVXL]+)\s*$")
+SCHEDULE_RE = re.compile(r"^(?:THE\s+)?(FIRST|SECOND|THIRD|FOURTH)\s+SCHEDULE\b", re.IGNORECASE)
 
 
 def _is_next(num, suffix, last_num, last_suffix):
@@ -11,6 +15,14 @@ def _is_next(num, suffix, last_num, last_suffix):
     if num == last_num and suffix and suffix > last_suffix:
         return True
     return False
+
+
+def _looks_like_toc(sections, current):
+    """True if the sections collected so far are one-line table-of-contents entries."""
+    sizes = sorted(
+        len(" ".join(x["lines"])) for x in sections + [current] if x["section"] != "preamble"
+    )
+    return len(sizes) >= 5 and sizes[len(sizes) // 2] < 200
 
 
 def split_sections(pages):
@@ -34,10 +46,33 @@ def split_sections(pages):
             if m:
                 chapter = m.group(1)
 
-            m = SECTION_RE.match(stripped)
-            if m and _is_next(int(m.group(1)), m.group(2), last_num, last_suffix):
+            sm = SCHEDULE_RE.match(stripped)
+            if sm:
+                # A schedule is its own part of the Act, not the tail of the last section.
                 sections.append(current)
-                last_num, last_suffix = int(m.group(1)), m.group(2)
+                current = {
+                    "section": f"{sm.group(1).title()} Schedule",
+                    "chapter": "",
+                    "page": page_no,
+                    "lines": [stripped],
+                }
+                continue
+
+            m = SECTION_RE.match(stripped)
+            if m and m.group("lead") and LEAD_BAD_END_RE.search(m.group("lead")):
+                m = None  # the text before the number is a cross-reference like "under section 19."
+
+            if (m and int(m.group("num")) == 1 and not m.group("suf") and last_num >= 5
+                    and _looks_like_toc(sections, current)):
+                # "1." appeared again after a run of one-line entries: that was the
+                # table of contents ("Arrangement of Sections"), so start over.
+                sections = []
+                current = {"section": "preamble", "chapter": "", "page": page_no, "lines": []}
+                last_num, last_suffix = 0, ""
+
+            if m and _is_next(int(m.group("num")), m.group("suf"), last_num, last_suffix):
+                sections.append(current)
+                last_num, last_suffix = int(m.group("num")), m.group("suf")
                 current = {
                     "section": f"{last_num}{last_suffix}",
                     "chapter": chapter,

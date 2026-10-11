@@ -12,7 +12,10 @@ st.caption(
 
 with st.sidebar:
     st.header("About")
-    st.write("Indexed: Consumer Protection Act, 2019 (source: India Code).")
+    st.write(
+        "Indexed: Consumer Protection Act, 2019 and Right to Information Act, 2005 "
+        "(amended text, last updated 17-5-2021)."
+    )
     if st.button("Clear chat"):
         st.session_state.messages = []
         st.rerun()
