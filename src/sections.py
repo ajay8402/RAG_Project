@@ -1,8 +1,16 @@
 import re
 
-# A section starts with its number, optionally preceded by the side heading that some
-# scanned copies print on the same line (e.g. "Appeal 19. (1) Any person...").
-SECTION_RE = re.compile(r"^(?:(?P<lead>[A-Z][^\d]{0,60}?)\s)?(?P<num>\d{1,3})(?P<suf>[A-Z]{0,2})\.\s+(?=[(\"“‘A-Z])")
+# A section starts with its number. Real Acts decorate it in different ways:
+#   "2[2A. E-cart..."       amendment marker before the number
+#   "Appeal 19. (1) ..."    side heading on the same line (scanned copies)
+#   "93. 2[Agent or ...]"   amendment marker before the heading
+SECTION_RE = re.compile(
+    r"^(?:\d{1,3}\s*\[+\s*|\[+\s*)?"
+    r"(?:(?P<lead>[A-Z][^\d]{0,60}?)\s)?"
+    r"(?P<num>\d{1,3})(?P<suf>[A-Z]{0,2})\.\s*"
+    r"(?=(?:\d{1,3}\[)?[(\"“‘\[A-Z])"
+    r"(?!(?:Subs|Ins|Added|Rep|Renumbered|Re-numbered|Substituted|Inserted|Cl|Clause|Ibid)\b)"
+)
 LEAD_BAD_END_RE = re.compile(r"(?i)\b(section|sections|sub-section|clause|and|or|of|to|in|under)$")
 CHAPTER_RE = re.compile(r"^CHAPTER\s+([IVXL]+)\s*$")
 SCHEDULE_RE = re.compile(r"^(?:THE\s+)?(FIRST|SECOND|THIRD|FOURTH)\s+SCHEDULE\b", re.IGNORECASE)

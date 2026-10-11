@@ -19,4 +19,4 @@ while True:
 
     print("\nSources:")
     for c in chunks:
-        print(f"  - {c['source']} p.{c['page']} (distance {c['distance']})")
+        print(f"  - {c['source']} s.{c['section']} (distance {c['distance']})")

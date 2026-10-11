@@ -33,17 +33,23 @@ Follow-up question: {question}"""
     return response.text.strip()
 
 
+def _label(c):
+    s = str(c.get("section", ""))
+    return f"Section {s}" if s[:1].isdigit() else s.capitalize()
+
+
 def answer(question, chunks, history=None):
     context = "\n\n---\n\n".join(
-        f"[{c['source']}, page {c['page']}]\n{c['text']}" for c in chunks
+        f"[{c['source']}, {_label(c)}, page {c['page']}]\n{c['text']}" for c in chunks
     )
     convo = _format_history(history) if history else "(no earlier messages)"
 
     prompt = f"""You are an assistant that explains Indian public legal documents in plain language.
 Use only the context below. Do not use your own general knowledge.
+Each passage starts with the name of the Act and its section.
+When you state a rule, cite the Act and section, like (Right To Information Act 2005, Section 7).
 If the context has nothing relevant, say you don't know and suggest checking the official source or a lawyer.
 If the context only partly answers the question, share what it does say.
-When you state a rule, cite its page like (page 12).
 Reply in the same language as the question.
 Describe what the document says. Do not give legal advice or predict the outcome of a case.
 Use the earlier conversation only to understand what the question refers to.

@@ -21,6 +21,9 @@ def clean_text(text):
     text = text.replace("\u00a0", " ")
     text = PAGENUM_BEFORE_HEADER_RE.sub("", text)
     text = HEADER_RE.sub("", text)
+    # Consolidated Acts mark amendments as 2[...text...]; drop the markers, keep the text.
+    text = re.sub(r"(?<![\w.])\d{1,2}\[", "", text)
+    text = text.replace("[", "").replace("]", "")
     text = re.sub(r"(\w)-\n(\w)", r"\1\2", text)
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
